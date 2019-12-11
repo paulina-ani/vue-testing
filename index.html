@@ -26,6 +26,10 @@
               <li v-for="detail in details">{{ detail }}</li>
             </ul>
           </div>
+          Available colors:
+          <div v-for="variant in variants" :key="variant.variantId">
+            {{ variant.variantColor }}
+          </div>
         </div>
       </div>
       <footer>
