@@ -1,6 +1,7 @@
 var app = new Vue({
   el: "#app",
   data: {
+    brand: "Vue Mastery",
     product: "Socks",
     description: "A pair of warm, fuzzy socks",
     image: "/pictures/green-socks.png",
@@ -35,6 +36,11 @@ var app = new Vue({
     },
     displayImage(variantImage) {
       this.image = variantImage;
+    }
+  },
+  computed: {
+    title() {
+      return this.brand + " " + this.product;
     }
   }
 });
