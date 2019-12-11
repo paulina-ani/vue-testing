@@ -6,7 +6,7 @@ var app = new Vue({
     image: "/pictures/green-socks.png",
     altText: "Socks",
     linkContactUs: "https://goodday4u.com/",
-    inStock: false,
+    inStock: true,
     inventory: 3,
     details: ["80% cotton", "20% polyester", "Gender-neutral"],
     sizes: ["XS", "S", "M", "L", "XL"],

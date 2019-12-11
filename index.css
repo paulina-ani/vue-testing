@@ -39,6 +39,9 @@ img {
   margin-top: 5px;
 }
 
+.outOfStock {
+  text-decoration: line-through;
+}
 .cart {
   margin-right: 25px;
   float: right;
