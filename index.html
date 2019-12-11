@@ -37,6 +37,11 @@
             </ul>
           </div>
         </div>
+        <button @click="addToCart">Add to Cart</button>
+        <button @click="removeFromCart">Remove from Cart</button>
+        <div class="cart">
+          <p>Cart ({{ cart }})</p>
+        </div>
       </div>
       <footer>
         <a :href="linkContactUs" target="_blank">Contact us</a>

@@ -19,6 +19,17 @@ var app = new Vue({
         variantId: 2235,
         variantColor: "blue"
       }
-    ]
+    ],
+    cart: 0
+  },
+  methods: {
+    addToCart() {
+      this.cart += 1;
+    },
+    removeFromCart() {
+      if (this.cart) {
+        this.cart -= 1;
+      }
+    }
   }
 });
