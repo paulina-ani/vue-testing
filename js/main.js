@@ -6,6 +6,7 @@ var app = new Vue({
     image: "/pictures/green-socks.png",
     altText: "Green socks",
     linkContactUs: "https://goodday4u.com/",
-    inStock: false
+    inStock: false,
+    inventory: 3
   }
 });
