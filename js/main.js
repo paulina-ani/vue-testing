@@ -18,12 +18,7 @@ Vue.component("product", {
         <p :class="{outOfStock: !inStock}">On Sale!</p>
         <p :class="{outOfStock: inStock}">Out of stock</p>
         <p>{{ sale }}</p>
-        <div>
-          Details:
-          <ul>
-            <li v-for="detail in details">{{ detail }}</li>
-          </ul>
-        </div>
+        <product-details :details="details"></product-details>
         <div>
           Available colors:
           <p
@@ -126,6 +121,23 @@ Vue.component("product", {
       }
     }
   }
+});
+
+Vue.component("product-details", {
+  props: {
+    details: {
+      type: Array,
+      required: true
+    }
+  },
+  template: `
+  <div>
+    Details:
+    <ul>
+      <li v-for="detail in details">{{ detail }}</li>
+    </ul>
+  </div>
+  `
 });
 
 var app = new Vue({
