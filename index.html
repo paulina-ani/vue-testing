@@ -20,6 +20,12 @@
           <p v-if="inventory > 10">In stock</p>
           <p v-else-if="inventory < 10 && inventory > 2">Almost sold out</p>
           <p v-else>Out of stock</p>
+          <div>
+            Details:
+            <ul>
+              <li v-for="detail in details">{{ detail }}</li>
+            </ul>
+          </div>
         </div>
       </div>
       <footer>

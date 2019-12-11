@@ -7,6 +7,7 @@ var app = new Vue({
     altText: "Green socks",
     linkContactUs: "https://goodday4u.com/",
     inStock: false,
-    inventory: 3
+    inventory: 3,
+    details: ["80% cotton", "20% polyester", "Gender-neutral"]
   }
 });
