@@ -48,7 +48,13 @@
         >
           Add to Cart
         </button>
-        <button @click="removeFromCart">Remove from Cart</button>
+        <button
+          @click="removeFromCart"
+          :disable="!inStock"
+          :class="{disabledButton: !inStock}"
+        >
+          Remove from Cart
+        </button>
         <div class="cart">
           <p>Cart ({{ cart }})</p>
         </div>
