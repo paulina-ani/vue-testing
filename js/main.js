@@ -4,7 +4,7 @@ var app = new Vue({
     product: "Socks",
     description: "A pair of warm, fuzzy socks",
     image: "/pictures/green-socks.png",
-    altText: "Green socks",
+    altText: "Socks",
     linkContactUs: "https://goodday4u.com/",
     inStock: false,
     inventory: 3,
@@ -13,11 +13,13 @@ var app = new Vue({
     variants: [
       {
         variantId: 2234,
-        variantColor: "green"
+        variantColor: "green",
+        variantImage: "/pictures/green-socks.png"
       },
       {
         variantId: 2235,
-        variantColor: "blue"
+        variantColor: "blue",
+        variantImage: "/pictures/blue-socks.png"
       }
     ],
     cart: 0
@@ -30,6 +32,9 @@ var app = new Vue({
       if (this.cart) {
         this.cart -= 1;
       }
+    },
+    displayImage(variantImage) {
+      this.image = variantImage;
     }
   }
 });

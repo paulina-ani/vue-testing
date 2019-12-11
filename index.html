@@ -27,7 +27,11 @@
             </ul>
           </div>
           Available colors:
-          <div v-for="variant in variants" :key="variant.variantId">
+          <div
+            v-for="variant in variants"
+            :key="variant.variantId"
+            @mouseover="displayImage(variant.variantImage)"
+          >
             {{ variant.variantColor }}
           </div>
           <div>
