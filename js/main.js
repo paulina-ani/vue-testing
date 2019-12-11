@@ -15,8 +15,8 @@ Vue.component("product", {
         <p>{{ description }}</p>
         <p>User is premium: {{ premium }}</p>
         <p>Cost: {{ shipping }}</p>
-        <p :class="{outOfStock: inStock}">On Sale!</p>
-        <p :class="{outOfStock: !inStock}">Out of stock</p>
+        <p :class="{outOfStock: !inStock}">On Sale!</p>
+        <p :class="{outOfStock: inStock}">Out of stock</p>
         <p>{{ sale }}</p>
         <div>
           Details:
