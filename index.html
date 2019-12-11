@@ -26,13 +26,15 @@
               <li v-for="detail in details">{{ detail }}</li>
             </ul>
           </div>
-          Available colors:
-          <div
-            v-for="variant in variants"
-            :key="variant.variantId"
-            @mouseover="displayImage(variant.variantImage)"
-          >
-            {{ variant.variantColor }}
+          <div>
+            Available colors:
+            <p
+              class="color-box"
+              v-for="variant in variants"
+              :key="variant.variantId"
+              :style="{backgroundColor: variant.variantColor}"
+              @mouseover="displayImage(variant.variantImage)"
+            ></p>
           </div>
           <div>
             Sizes:
