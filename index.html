@@ -9,7 +9,14 @@
   <body>
     <div class="nav-bar"></div>
     <div id="app">
-      <product :premium="premium"></product>
+      <product
+        :premium="premium"
+        @add-to-cart="addItem"
+        @remove-from-cart="removeItem"
+      ></product>
+      <div class="cart">
+        <p>Cart ({{ cart.length }})</p>
+      </div>
       <footer>
         <a :href="linkContactUs" target="_blank">Contact us</a>
       </footer>
