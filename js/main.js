@@ -38,6 +38,7 @@ Vue.component("product", {
           </ul>
         </div>
       </div>
+<<<<<<< HEAD
       <div class="form-button">
           <div class="button-container">
           <button
@@ -56,6 +57,24 @@ Vue.component("product", {
           </button>
         </div>
         <product-tabs  :reviews="reviews"></product-tabs>
+=======
+      <button
+        @click="addToCart"
+        :disabled="!inStock"
+        :class="{ disabledButton: !inStock }"
+      >
+        Add to Cart
+      </button>
+      <button
+        @click="removeFromCart"
+        :disable="!inStock"
+        :class="{disabledButton: !inStock}"
+      >
+        Remove from Cart
+      </button>
+      <div class="cart">
+        <p>Cart ({{ cart }})</p>
+>>>>>>> parent of 36af5bc... Cart button modified
       </div>
     </div>
   `,
@@ -80,7 +99,7 @@ Vue.component("product", {
           variantId: 2235,
           variantColor: "blue",
           variantImage: "/pictures/blue-socks.png",
-          variantQuantity: 20
+          variantQuantity: 0
         }
       ],
       cart: 0,
@@ -90,13 +109,12 @@ Vue.component("product", {
   },
   methods: {
     addToCart() {
-      this.$emit("add-to-cart", this.variants[this.selectedVariant].variantId);
+      this.cart += 1;
     },
     removeFromCart() {
-      this.$emit(
-        "remove-from-cart",
-        this.variants[this.selectedVariant].variantId
-      );
+      if (this.cart) {
+        this.cart -= 1;
+      }
     },
     updateProduct(index) {
       this.selectedVariant = index;
@@ -268,15 +286,6 @@ var app = new Vue({
   el: "#app",
   data: {
     linkContactUs: "https://goodday4u.com/",
-    premium: false,
-    cart: []
-  },
-  methods: {
-    addItem(id) {
-      this.cart.push(id);
-    },
-    removeItem(id) {
-      this.cart.push(id);
-    }
+    premium: false
   }
 });
