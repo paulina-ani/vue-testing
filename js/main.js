@@ -71,13 +71,13 @@ Vue.component("product", {
         {
           variantId: 2234,
           variantColor: "green",
-          variantImage: "/pictures/green-socks.png",
+          variantImage: "./pictures/green-socks.png",
           variantQuantity: 10
         },
         {
           variantId: 2235,
           variantColor: "blue",
-          variantImage: "/pictures/blue-socks.png",
+          variantImage: "./pictures/blue-socks.png",
           variantQuantity: 20
         }
       ],
