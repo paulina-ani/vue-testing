@@ -16,6 +16,7 @@ Vue.component("product", {
         <h1>{{ title }}</h1>
         <p>{{ description }}</p>
         <p>User is premium: {{ premium }}</p>
+        <details-tabs></details-tabs>
         <p>Cost: {{ shipping }}</p>
         <p :class="{outOfStock: !inStock}">On Sale!</p>
         <p :class="{outOfStock: inStock}">Out of stock</p>
@@ -272,6 +273,24 @@ Vue.component("product-tabs", {
     };
   }
 });
+
+Vue.component('details-tabs', {
+  template: `
+    <div>
+        <span class="tab" 
+        v-for="(tab, index) in tabs" 
+        :key="index" 
+        @click="selectedTab = tab"
+        :class="{activeTab: selectedTab === tab}">{{ tab }}</span>
+    </div>
+  `,
+  data() {
+    return {
+      tabs: ["Shipping", "Details"],
+      selectedTab: "Shipping"
+    }
+  }
+})
 var app = new Vue({
   el: "#app",
   data: {
