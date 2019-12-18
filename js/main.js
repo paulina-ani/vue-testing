@@ -16,12 +16,10 @@ Vue.component("product", {
         <h1>{{ title }}</h1>
         <p>{{ description }}</p>
         <p>User is premium: {{ premium }}</p>
-        <details-tabs></details-tabs>
-        <p>Cost: {{ shipping }}</p>
+        <details-tabs :shipping="shipping"></details-tabs>
         <p :class="{outOfStock: !inStock}">On Sale!</p>
         <p :class="{outOfStock: inStock}">Out of stock</p>
         <p>{{ sale }}</p>
-        <product-details :details="details"></product-details>
         <div>
           Available colors:
           <p
@@ -65,7 +63,6 @@ Vue.component("product", {
       description: "A pair of warm, fuzzy socks",
       altText: "Socks",
       inventory: 3,
-      details: ["80% cotton", "20% polyester", "Gender-neutral"],
       sizes: ["XS", "S", "M", "L", "XL"],
       selectedVariant: 0,
       variants: [
@@ -131,23 +128,6 @@ Vue.component("product", {
       this.reviews.push(productForm);
     });
   }
-});
-
-Vue.component("product-details", {
-  props: {
-    details: {
-      type: Array,
-      required: true
-    }
-  },
-  template: `
-  <div>
-    Details:
-    <ul>
-      <li v-for="detail in details">{{ detail }}</li>
-    </ul>
-  </div>
-  `
 });
 
 Vue.component("product-review", {
@@ -275,6 +255,11 @@ Vue.component("product-tabs", {
 });
 
 Vue.component('details-tabs', {
+  props: {
+    shipping: {
+      required: true,
+    },
+  },
   template: `
     <div>
         <span class="tab" 
@@ -282,6 +267,10 @@ Vue.component('details-tabs', {
         :key="index" 
         @click="selectedTab = tab"
         :class="{activeTab: selectedTab === tab}">{{ tab }}</span>
+        <div v-show="selectedTab == 'Shipping'">Cost: {{ shipping }}</div>
+        <div v-show="selectedTab === 'Details'">
+            <product-details></product-details>
+        </div>
     </div>
   `,
   data() {
@@ -290,7 +279,23 @@ Vue.component('details-tabs', {
       selectedTab: "Shipping"
     }
   }
-})
+});
+
+Vue.component("product-details", {
+  template: `
+  <div>
+    Details:
+    <ul>
+      <li v-for="detail in details">{{ detail }}</li>
+    </ul>
+  </div>
+  `,
+  data() {
+    return {
+      details: ["80% cotton", "20% polyester", "Gender-neutral"],
+    }
+  }
+});
 var app = new Vue({
   el: "#app",
   data: {
